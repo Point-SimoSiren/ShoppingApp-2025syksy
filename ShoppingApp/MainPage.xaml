@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ShoppingApp.MainPage">
+             x:Class="ShoppingApp.MainPage" BackgroundColor="Black">
 
     <Grid>
 
@@ -17,11 +17,12 @@
                    TextColor="Orange" FontSize="24"/>
         </Frame>
 
-        <Label x:Name = "Loading_label" TextColor="White" FontSize="24"  Grid.Row="2" Text="Ladataan ostoslistaa..."/>
+        <Label x:Name = "Loading_label" TextColor="White" FontSize="24"  
+               HorizontalTextAlignment="Center" Grid.Row="1" Text="Ladataan ostoslistaa..."/>
 
 
         <!-- Vieritettävä sisältö -->
-        <ScrollView Grid.Row="3">
+        <ScrollView Grid.Row="2">
             <ListView x:Name="itemList" SelectionMode="Single" Margin="20, 0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -66,7 +67,7 @@
         </ScrollView>
 
 
-        <Frame Grid.Row="5" BackgroundColor="Black" BorderColor="Black" 
+        <Frame Grid.Row="3" BackgroundColor="Black" BorderColor="Black" 
                Padding="70, 20, 40, 50" VerticalOptions="EndAndExpand">
             <Label Text="Sujuvaa ostosten hallintaa" TextColor="Orange" FontSize="20"/>
         </Frame>
