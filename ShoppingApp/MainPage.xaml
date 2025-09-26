@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingApp.MainPage">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Frame Grid.Row="0" BackgroundColor="Black" Padding="20" BorderColor="Black" CornerRadius="0">
+            <Label Text="Kauppalista" HorizontalTextAlignment="Center"
+                   TextColor="Orange" FontSize="24"/>
+        </Frame>
+
+        <Label x:Name = "Loading_label" TextColor="White" FontSize="24"  Grid.Row="2" Text="Ladataan ostoslistaa..."/>
+
+
+        <!-- Vieritettävä sisältö -->
+        <ScrollView Grid.Row="3">
+            <ListView x:Name="itemList" SelectionMode="Single" Margin="20, 0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <ContentView Padding="3">
+                                <Frame BorderColor="Silver" Padding="2">
+
+                                    <HorizontalStackLayout BackgroundColor="AliceBlue" Padding="0, 2">
+
+                                        <Label Text="{Binding Item}"
+                                               TextColor="Purple"
+                                               FontSize="22"
+                                               VerticalOptions="StartAndExpand" 
+                                           Margin="20, 0, 0, 0"/>
+
+
+                                        <Label Text="{Binding Amount}"
+                                         TextColor="Purple"
+                                           FontSize="22"
+                                           VerticalOptions="StartAndExpand"
+                                            HorizontalOptions="Center"
+                                             Margin="5, 0, 0, 0"/>
+
+
+                                        <Label Text="KPL"
+                                         TextColor="Purple"
+                                           FontSize="22"
+                                           VerticalOptions="StartAndExpand"
+                                            HorizontalOptions="Center"
+                                             Margin="5, 0, 0, 0"/>
+
+
+                                    </HorizontalStackLayout>
+
+                                </Frame>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+
+        <Frame Grid.Row="5" BackgroundColor="Black" BorderColor="Black" 
+               Padding="70, 20, 40, 50" VerticalOptions="EndAndExpand">
+            <Label Text="Sujuvaa ostosten hallintaa" TextColor="Orange" FontSize="20"/>
+        </Frame>
+
+
+    </Grid>
+
+</ContentPage>
