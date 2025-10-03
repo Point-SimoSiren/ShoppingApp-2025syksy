@@ -46,6 +46,9 @@ namespace ShoppingApp
 
             // Latausilmoitus pois näkyvistä
             Loading_label.IsVisible = false;
+
+            // Stop the refresh animation
+            refreshView.IsRefreshing = false;
         }
 
 
