@@ -52,7 +52,8 @@ public partial class AddingPage : ContentPage
             client.BaseAddress = new Uri("https://shoppingbackendope.azurewebsites.net");
             HttpResponseMessage res = await client.PostAsync("/api/shoplist/", content);
 
-            if (res.StatusCode == System.Net.HttpStatusCode.OK)
+            if (res.StatusCode == System.Net.HttpStatusCode.OK || 
+                res.StatusCode == System.Net.HttpStatusCode.Created)
             {
                 ItemField.Text = "";
                 AmountField.Text = "";
