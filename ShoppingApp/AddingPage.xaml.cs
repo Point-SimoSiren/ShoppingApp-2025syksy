@@ -8,11 +8,12 @@ public partial class AddingPage : ContentPage
 {
     // Alustus MainPagelle jotta t‰‰ll‰ voidaan kutsua sen sis‰lt‰m‰‰ metodia LoadDataFromRestAPI()"
     private MainPage _mainPage;
+  
 
     public AddingPage(MainPage mainPage)
     {
         InitializeComponent();
-
+        
         _mainPage = mainPage; // Jotta voidaan kutsua edelt‰v‰n kommentin mukaisesti...
     }
 
@@ -51,20 +52,15 @@ public partial class AddingPage : ContentPage
             HttpClient client = new();
             client.BaseAddress = new Uri("https://shoppingbackendope.azurewebsites.net");
             HttpResponseMessage res = await client.PostAsync("/api/shoplist/", content);
-
             if (res.StatusCode == System.Net.HttpStatusCode.OK || 
                 res.StatusCode == System.Net.HttpStatusCode.Created)
             {
                 ItemField.Text = "";
                 AmountField.Text = "";
 
-
                 await _mainPage.LoadDataFromRestAPI();
                 // Suljetaan modaali sivu
                 await Shell.Current.Navigation.PopModalAsync();
-
-
-
             }
             else
             {

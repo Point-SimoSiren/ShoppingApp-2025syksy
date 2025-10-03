@@ -7,7 +7,7 @@ namespace ShoppingApp
     public partial class MainPage : ContentPage
     {
 
-        private readonly HttpClient client = new HttpClient
+        public readonly HttpClient client = new HttpClient
             {
               BaseAddress = new Uri("https://shoppingbackendope.azurewebsites.net")
             };
@@ -19,6 +19,14 @@ namespace ShoppingApp
           
             LoadDataFromRestAPI();
         }
+
+
+        // PULL TO REFRESH toiminto 
+        private void refreshView_Refreshing(object sender, EventArgs e)
+        {
+            LoadDataFromRestAPI();
+        }
+
 
 
 
@@ -90,8 +98,6 @@ namespace ShoppingApp
                 await LoadDataFromRestAPI();
 
             }
-
-
         }
     }
 }
