@@ -33,5 +33,16 @@ namespace ShoppingApp
             // Latausilmoitus pois näkyvistä
             Loading_label.IsVisible = false;
         }
+
+
+        // Lisäyssivulle navigoiminen
+        private async void addPageBtn_Clicked(object sender, EventArgs e)
+        {
+            // This on tämä luokka. Se välitetään AddingPagelle jotta sieltä voidaan kutsua
+            // LoadDataFromRestAPI metodia, joka kuuluu MainPagelle.
+            AddingPage addingPage = new AddingPage(this);
+            await Shell.Current.Navigation.PushModalAsync(addingPage);
+        }
+
     }
 }

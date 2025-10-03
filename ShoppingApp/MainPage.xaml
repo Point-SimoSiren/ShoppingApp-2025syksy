@@ -10,6 +10,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Frame Grid.Row="0" BackgroundColor="Black" Padding="20" BorderColor="Black" CornerRadius="0">
@@ -67,7 +68,13 @@
         </ScrollView>
 
 
-        <Frame Grid.Row="3" BackgroundColor="Black" BorderColor="Black" 
+        <Button Grid.Row="3" x:Name="addPageBtn" 
+                Clicked="addPageBtn_Clicked" IsVisible="True" 
+                Text="Lisää uusi tavara" Padding="20" FontSize="26"
+            Margin="40,10,40,10" />
+
+
+        <Frame Grid.Row="4" BackgroundColor="Black" BorderColor="Black" 
                Padding="70, 20, 40, 50" VerticalOptions="EndAndExpand">
             <Label Text="Sujuvaa ostosten hallintaa" TextColor="Orange" FontSize="20"/>
         </Frame>
